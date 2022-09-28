@@ -2,6 +2,8 @@
 
 _Gotta Log 'Em All!_
 
+![Demo GIF](https://user-images.githubusercontent.com/5132652/192894060-551b4f0f-4a68-48d7-8c39-29d126c19581.gif)
+
 Captures console output from various browser extension sources (background scripts, content scripts, popups, pages), and sends logging to a single user interface.
 
 ## Usage
