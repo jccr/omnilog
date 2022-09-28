@@ -1,4 +1,4 @@
-console.log("Hello from tab!");
+console.log('Hello from tab!')
 window.addEventListener('DOMContentLoaded', () => {
-  console.warn("Reached end of body.");
-});
+  console.warn('Reached end of body.')
+})

@@ -1,3 +1,3 @@
-import '../src/omnilog.js';
+import '../src/omnilog.js'
 
-console.log('Hello from content script!');
+console.log('Hello from content script!')

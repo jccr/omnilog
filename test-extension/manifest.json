@@ -2,9 +2,7 @@
   "manifest_version": 3,
   "name": "Test Extension",
   "version": "0.0.1",
-  "permissions": [
-    "tabs"
-  ],
+  "permissions": ["tabs"],
   "background": {
     "service_worker": "service-worker.js",
     "type": "module"
@@ -15,13 +13,9 @@
   },
   "content_scripts": [
     {
-      "matches": [
-        "*://example.com/*"
-      ],
+      "matches": ["*://example.com/*"],
       "match_about_blank": true,
-      "js": [
-        "content-script.js"
-      ]
+      "js": ["content-script.js"]
     }
   ]
 }

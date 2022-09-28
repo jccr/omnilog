@@ -26,8 +26,8 @@ In your browser extension project:
 3. To capture logs from your background script (service worker), add this to the top of your script:
 
    ```js
-   import "@jccr/omnilog/omnilog.js";
-   import "@jccr/omnilog/omnilog-sw.js";
+   import '@jccr/omnilog/omnilog.js'
+   import '@jccr/omnilog/omnilog-sw.js'
    ```
 
 4. To capture logs from content scripts, bundle this into your scripts:
@@ -41,7 +41,7 @@ In your browser extension project:
 5. To capture logs from your action popup or extension page, add this to the top of your entry script:
 
    ```js
-   import "@jccr/omnilog/omnilog.js";
+   import '@jccr/omnilog/omnilog.js'
    ```
 
    If using Webpack and the HTMLWebpackPlugin, you can instead add this to the `chunks` array of the config:

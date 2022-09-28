@@ -1,4 +1,4 @@
-import '../src/omnilog.js';
-import '../src/omnilog-sw.js';
+import '../src/omnilog.js'
+import '../src/omnilog-sw.js'
 
-console.log("Hello from service worker!");
+console.log('Hello from service worker!')

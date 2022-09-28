@@ -2,65 +2,65 @@
 
 exports[`babel-plugin using fixtures file: using fixtures file 1`] = `
 
-import React from "react";
+import React from 'react'
 
 const HelloWorld = () => {
   function sayHello() {
-    console.log("Hello, World!");
-    console.info("Hello, World!");
-    console.warn("Hello, World!");
-    console.error("Hello, World!");
-    console.debug("Hello, World!");
-    console.dir({ hello: "world" });
+    console.log('Hello, World!')
+    console.info('Hello, World!')
+    console.warn('Hello, World!')
+    console.error('Hello, World!')
+    console.debug('Hello, World!')
+    console.dir({ hello: 'world' })
   }
 
-  return <button onClick={sayHello}>Click me!</button>;
-};
+  return <button onClick={sayHello}>Click me!</button>
+}
 
-export default HelloWorld;
+export default HelloWorld
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
-import React from "react";
+import React from 'react'
 
 const HelloWorld = () => {
   function sayHello() {
-    omnilog.log("Hello, World!", "/tests/__fixtures__/hello-world.jsx:5:4")();
-    omnilog.info("Hello, World!", "/tests/__fixtures__/hello-world.jsx:6:4")();
-    omnilog.warn("Hello, World!", "/tests/__fixtures__/hello-world.jsx:7:4")();
-    omnilog.error("Hello, World!", "/tests/__fixtures__/hello-world.jsx:8:4")();
-    omnilog.debug("Hello, World!", "/tests/__fixtures__/hello-world.jsx:9:4")();
+    omnilog.log('Hello, World!', '/tests/__fixtures__/hello-world.jsx:5:4')()
+    omnilog.info('Hello, World!', '/tests/__fixtures__/hello-world.jsx:6:4')()
+    omnilog.warn('Hello, World!', '/tests/__fixtures__/hello-world.jsx:7:4')()
+    omnilog.error('Hello, World!', '/tests/__fixtures__/hello-world.jsx:8:4')()
+    omnilog.debug('Hello, World!', '/tests/__fixtures__/hello-world.jsx:9:4')()
     console.dir({
-      hello: "world",
-    });
+      hello: 'world',
+    })
   }
 
-  return <button onClick={sayHello}>Click me!</button>;
-};
+  return <button onClick={sayHello}>Click me!</button>
+}
 
-export default HelloWorld;
+export default HelloWorld
 
 
 `;
 
 exports[`babel-plugin using jest snapshots: using jest snapshots 1`] = `
 
-var foo = 1;
-if (foo) console.log(foo);
+var foo = 1
+if (foo) console.log(foo)
 
-console.log("hello world");
+console.log('hello world')
 
-console.log("hello world", "foo", "bar");
+console.log('hello world', 'foo', 'bar')
 
-console.log(foo ? "yes" : "no"); // comment
+console.log(foo ? 'yes' : 'no'); // comment
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
-var foo = 1;
-if (foo) omnilog.log(foo, "[unknown]:2:9")();
-omnilog.log("hello world", "[unknown]:4:0")();
-omnilog.log("hello world", "foo", "bar", "[unknown]:6:0")();
-omnilog.log(foo ? "yes" : "no", "[unknown]:8:0")(); // comment
+var foo = 1
+if (foo) omnilog.log(foo, 'unknown:2:9')()
+omnilog.log('hello world', 'unknown:4:0')()
+omnilog.log('hello world', 'foo', 'bar', 'unknown:6:0')()
+omnilog.log(foo ? 'yes' : 'no', 'unknown:8:0')() // comment
 
 
 `;
