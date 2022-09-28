@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Omnilog Test",
+  "version": "0.0.1",
+  "permissions": [
+    "tabs"
+  ],
+  "background": {
+    "service_worker": "../src/omnilog-sw.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "Click to view a popup",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://example.com/*"
+      ],
+      "match_about_blank": true,
+      "js": [
+        "../src/omnilog.js"
+      ]
+    }
+  ]
+}
