@@ -1,12 +1,12 @@
 {
   "manifest_version": 3,
-  "name": "Omnilog Test",
+  "name": "Test Extension",
   "version": "0.0.1",
   "permissions": [
     "tabs"
   ],
   "background": {
-    "service_worker": "../src/omnilog-sw.js",
+    "service_worker": "service-worker.js",
     "type": "module"
   },
   "action": {
@@ -20,7 +20,7 @@
       ],
       "match_about_blank": true,
       "js": [
-        "../src/omnilog.js"
+        "content-script.js"
       ]
     }
   ]
