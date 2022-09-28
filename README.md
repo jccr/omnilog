@@ -4,7 +4,9 @@ _Gotta Log 'Em All!_
 
 ![Demo GIF](https://user-images.githubusercontent.com/5132652/192894060-551b4f0f-4a68-48d7-8c39-29d126c19581.gif)
 
-Captures console output from various browser extension sources (background scripts, content scripts, popups, pages), and sends logging to a single user interface.
+Captures console output from various browser extension sources (background scripts, content scripts, popups, pages), and sends logging to a single user interface. Shows original source and line numbers in the log with the help of a Babel plugin.
+
+Made for Chrome Extensions targetting [Manifest V3](https://developer.chrome.com/docs/extensions/mv3/intro/).
 
 ## Usage
 
