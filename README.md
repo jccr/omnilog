@@ -49,6 +49,15 @@ In your browser extension project:
    import '@jccr/omnilog/omnilog-sw.js'
    ```
 
+   If you are not using the Babel plugin, you can use the fallback wrapper instead:
+
+   ```js
+   // Wrap console functions (console.* -> omnilog.*)
+   import '@jccr/omnilog/omnilog-wc.js'
+   // Keep the Omnilog UI open in a pinned tab
+   import '@jccr/omnilog/omnilog-sw.js'
+   ```
+
 4. To capture logs from content scripts, bundle this into your scripts:
 
    ```
@@ -64,6 +73,13 @@ In your browser extension project:
    import '@jccr/omnilog/omnilog.js'
    ```
 
+   If you are not using the Babel plugin, you can use the fallback wrapper instead:
+
+   ```js
+   // Wrap console functions (console.* -> omnilog.*)
+   import '@jccr/omnilog/omnilog-wc.js'
+   ```
+
    If using Webpack and the HTMLWebpackPlugin, you can instead add this to the `chunks` array of the config:
 
    ```js
@@ -77,8 +93,8 @@ In your browser extension project:
 
    ```js
    entry: {
-     omnilog: "@jccr/omnilog/omnilog.js",
-     popup: "./src/popup.js",
+     omnilog: '@jccr/omnilog/omnilog.js', // OR @jccr/omnilog/omnilog-wc.js without the Babel plugin
+     popup: './src/popup.js',
    }
    ```
 
@@ -88,11 +104,11 @@ In your browser extension project:
    ```js
    entry: {
      ..., // your other entry points
-     omnilogUi: "@jccr/omnilog/omnilog-ui.js",
+     omnilogUi: '@jccr/omnilog/omnilog-ui.js',
    }
 
    // Add Omnilog UI only to the dev build
-   if (process.env.NODE_ENV === "development") {
+   if (process.env.NODE_ENV === 'development') {
      plugins.push(
        new HTMLWebpackPlugin({
          filename: 'omnilog.html',

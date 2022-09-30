@@ -20,7 +20,9 @@
     "omnilog-sw.js",
     "omnilog-sw.js.map",
     "omnilog-ui.js",
-    "omnilog-ui.js.map"
+    "omnilog-ui.js.map",
+    "omnilog-wc.js",
+    "omnilog-wc.js.map"
   ],
   "publishConfig": {
     "access": "public"
@@ -35,6 +37,19 @@
     "url": "https://github.com/jccr/omnilog/issues"
   },
   "homepage": "https://github.com/jccr/omnilog#readme",
+  "keywords": [
+    "chrome-extension",
+    "logger",
+    "tool",
+    "logger-interface",
+    "developer-tools",
+    "console-log",
+    "browser-extension",
+    "devtool",
+    "debugging-tool",
+    "debug-tool",
+    "console-color"
+  ],
   "dependencies": {
     "ansicolor": "^1.1.100",
     "react": "^18.2.0",

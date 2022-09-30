@@ -31,17 +31,5 @@ pluginTester({
       `,
       snapshot: true,
     },
-    'sets __OMNILOG_BABEL_PLUGIN__ from false to true': {
-      code: 'globalThis.omnilog.__OMNILOG_BABEL_PLUGIN__ = false',
-      output: 'globalThis.omnilog.__OMNILOG_BABEL_PLUGIN__ = true',
-    },
-    'sets __OMNILOG_BABEL_PLUGIN__ from falsy to true': {
-      code: 'omnilog.__OMNILOG_BABEL_PLUGIN__ = 0',
-      output: 'omnilog.__OMNILOG_BABEL_PLUGIN__ = true',
-    },
-    'keeps __OMNILOG_BABEL_PLUGIN__ as true': {
-      code: 'x.__OMNILOG_BABEL_PLUGIN__ = true',
-      output: 'x.__OMNILOG_BABEL_PLUGIN__ = true',
-    },
   },
 })

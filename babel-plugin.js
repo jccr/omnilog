@@ -1,16 +1,9 @@
 const methods = ['log', 'info', 'warn', 'error', 'debug']
 const cwd = process.cwd()
-const usageFlag = '__OMNILOG_BABEL_PLUGIN__'
 
 module.exports = function ({ types: t }) {
   return {
     visitor: {
-      AssignmentExpression(path) {
-        const property = path.node.left.property
-        if (t.isIdentifier(property) && property.name === usageFlag) {
-          path.get('right').replaceWith(t.booleanLiteral(true))
-        }
-      },
       CallExpression(path, state) {
         if (
           path.get('callee').isMemberExpression() &&
