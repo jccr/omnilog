@@ -1,6 +1,6 @@
 {
   "name": "@jccr/omnilog",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Gotta Log 'Em All!",
   "scripts": {
     "test": "jest",
