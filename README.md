@@ -64,6 +64,12 @@ In your browser extension project:
    @jccr/omnilog/omnilog.js
    ```
 
+   If you are not using the Babel plugin, you can use the fallback wrapper instead:
+
+   ```
+   @jccr/omnilog/omnilog-wc.js
+   ```
+
    If using Webpack, you could add this as an entry point. Grouped with and preceding your content scripts entry points, if possible.
 
 5. To capture logs from your action popup or extension page, add this to the top of your entry script:
