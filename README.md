@@ -17,7 +17,20 @@ In your browser extension project:
 
    ```json
    {
-     "plugins": ["@jccr/omnilog/babel-plugin.js"]
+     "plugins": [..., "@jccr/omnilog/babel-plugin.js"]
+   }
+   ```
+
+   If you only want to use this in development (recommended), you can use this configuration:
+
+   ```json
+   {
+    "plugins": [...],
+    "env": {
+       "development": {
+         "plugins": ["@jccr/omnilog/babel-plugin.js"]
+       }
+     }
    }
    ```
 
@@ -30,7 +43,9 @@ In your browser extension project:
 3. To capture logs from your background script (service worker), add this to the top of your script:
 
    ```js
+   // Add console capture functions (omnilog.*)
    import '@jccr/omnilog/omnilog.js'
+   // Keep the Omnilog UI open in a pinned tab
    import '@jccr/omnilog/omnilog-sw.js'
    ```
 
@@ -45,6 +60,7 @@ In your browser extension project:
 5. To capture logs from your action popup or extension page, add this to the top of your entry script:
 
    ```js
+   // Add console capture functions (omnilog.*)
    import '@jccr/omnilog/omnilog.js'
    ```
 
@@ -80,7 +96,7 @@ In your browser extension project:
      plugins.push(
        new HTMLWebpackPlugin({
          filename: 'omnilog.html',
-         template: 'node_modules/@jccr/omnilog/omnilog.html',
+         template: require.resolve('@jccr/omnilog/omnilog.html'),
          inject: true,
          chunks: ['omnilogUi'],
        })
