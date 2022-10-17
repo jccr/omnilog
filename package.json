@@ -51,11 +51,12 @@
     "console-color"
   ],
   "dependencies": {
-    "ansicolor": "^1.1.100",
+    "@textea/json-viewer": "^2.9.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hot-toast": "^2.4.0",
     "react-jss": "^10.9.2",
-    "react-lazylog": "^4.5.3"
+    "react-toast": "^1.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.19.3",

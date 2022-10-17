@@ -30,15 +30,28 @@
     }
   }
 
-  async function queueMessage(type, source, ...args) {
+  async function queueMessage(type, source, stack, ...args) {
+    const mapped = args.map((arg) => {
+      // TODO: in the future, should probably use a custom serializer
+      // like https://www.npmjs.com/package/object-inspect
+      // to handle circular references, functions, and other edge cases
+      if (arg === undefined) {
+        return '$ol_type_undefined' // undefined is serialized as null otherwise
+      }
+      if (typeof arg === 'bigint') {
+        return arg.toString() + '$ol_type_bigint' // bigint is not serialized otherwise
+      }
+      return arg
+    })
+
     const message = {
       namespace: 'omnilog',
       type,
-      args,
+      args: mapped,
       source,
       href: location.href,
       when: Date.now(),
-      stack: new Error().stack,
+      stack: stack ? `\n\n${stack}` : new Error().stack,
     }
     const success = await sendMessage(message)
     if (!success) {
@@ -87,17 +100,43 @@
   methods.forEach((type) => {
     globalThis.omnilog[type] = (...args) => {
       if (sourceRegex.test(args.at(-1))) {
-        queueMessage(type, args.pop(), ...args)
+        queueMessage(type, args.pop(), null, ...args)
         return Function.prototype.bind.call(
           consoleMethods[type],
           globalThis.console,
           ...args,
         )
       } else {
-        queueMessage(type, null, ...args)
+        queueMessage(type, null, null, ...args)
         consoleMethods[type](...args)
         return () => {}
       }
     }
+  })
+
+  addEventListener('error', (event) => {
+    const { message, filename, lineno, colno, error } = event
+    const messageWithStack = [
+      message,
+      ...(error?.stack?.split('\n').slice(1) || []),
+    ].join('\n')
+    queueMessage(
+      'error',
+      `${filename}:${lineno}:${colno}`,
+      error?.stack,
+      messageWithStack,
+    )
+  })
+
+  addEventListener('unhandledrejection', (event) => {
+    const {
+      reason: { message, stack },
+    } = event
+    const source = stack?.split('at ').at(-1)
+    const messageWithStack = [
+      `Uncaught (in promise) Error: ${message}`,
+      ...stack?.split('\n').slice(1),
+    ].join('\n')
+    queueMessage('error', source, stack, messageWithStack)
   })
 })()
