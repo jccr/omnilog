@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef, useEffect } from 'react'
+import React, { useLayoutEffect, useRef, useEffect } from 'react'
 import { createRoot } from 'react-dom/client'
 import { createUseStyles } from 'react-jss'
 import toast, { Toaster } from 'react-hot-toast'
